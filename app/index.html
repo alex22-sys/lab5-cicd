@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 5 CI/CD App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">IIT · Laboratory Work 5</p>
+        <h1>CI/CD Deployment with GitHub Actions</h1>
+        <p class="lead">
+          Вебзастосунок автоматично збирається у Docker image, публікується в
+          Docker Hub та оновлюється на Azure VM за допомогою Watchtower.
+        </p>
+        <div class="status">
+          <span class="status-dot"></span>
+          <span>pipeline ready: lint, build, push, deploy</span>
+        </div>
+      </section>
+
+      <section class="content">
+        <article class="panel">
+          <h2>CI</h2>
+          <p>
+            GitHub Actions запускається після push у main, перевіряє HTML/CSS
+            через Prettier і готує код до збірки.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>CD</h2>
+          <p>
+            Pipeline збирає Docker image на базі nginx і завантажує його в
+            Docker Hub з тегами latest та SHA коміту.
+          </p>
+        </article>
+
+        <article class="panel">
+          <h2>Deploy</h2>
+          <p>
+            Watchtower на Azure VM перевіряє Docker Hub, завантажує нову версію
+            image і перезапускає контейнер застосунку.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
